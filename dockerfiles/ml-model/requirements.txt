@@ -9,3 +9,8 @@ scikit-plot==0.3.7
 scipy==1.10.0
 seaborn==0.12.2
 keras==2.13.1
+uvicorn
+fastapi
+python-multipart
+nvidia-tensorrt
+
