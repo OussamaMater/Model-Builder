@@ -14,6 +14,7 @@ A Machine Learning Models Builder and Manager built with [Laravel](https://larav
 ![app showcase](imgs/app-1.png)
 
 ## Manual Setup
+
 > You can avoid this configurational step by using the [Docker installation process](#docker-setup).
 
 Before setting up the project, make sure you have the required dependencies:
@@ -46,9 +47,6 @@ Install pip
 ```bash
 sudo apt install python3-pip
 ```
-
-
-
 
 Install PHP
 
@@ -94,7 +92,7 @@ npm run build
 Create the `.env` file and generate the application encryption key
 
 ```bash
-cp .env.example .env # dont forget to change database credentials 
+cp .env.example .env # Don't forget to change database credentials 
 php artisan key:generate
 ```
 
@@ -109,16 +107,25 @@ Update the `package.json` file by swapping the `scripts` section with the one be
 
 ### Setting the Model
 
-There are at least two ways to setup python dependencies, globally or in a virtual environment.
+There are at least two ways to set up Python dependencies: **Globally** or in a **Virtual Environment**.
 
-1. #### Create a new venv (recommended if you want to isolate the dependencies)
+#### Via a Virtual Environment
+
+> [!NOTE]
+> This method is recommended if you want to isolate the dependencies.
+
 ```bash
 python3 -m venv venv
+
 source venv/bin/activate
+
 pip install --require-virtualenv --no-cache-dir --upgrade -r dockerfiles/ml-model/requirements.txt 
 ```
 
-2. #### Install all the requirements globally (recommended if you dont use any other machine learning projects)
+#### Globally
+
+> [!NOTE]
+> This method is recommended if you are not using any other machine learning projects.
 
 ```bash
 pip install --no-cache-dir --upgrade -r dockerfiles/ml-model/requirements.txt
@@ -144,17 +151,18 @@ php artisan serve
 
 If you want to expose the dev server to any other than localhost, you can use the following command
 
-
 ```php
 php artisan serve --host <your-ip> --port <your-port>
 ```
 
-To expose the server to the world (maybe requires port forwarding or firewall configuration)
+To expose the server to the world
+
+> [!NOTE]
+> Requires port forwarding or firewall configuration.
+
 ```php
 php artisan serve --host 0.0.0.0 --port <your-port>
 ```
-
-
 
 However Most of the features are available at /admin and to access it you must
 create a user using the following command:
@@ -162,8 +170,6 @@ create a user using the following command:
 ```php
 php artisan make:filament-user --email yourmail --password yourpass --name you
 ```
-
-
 
 ## Docker Setup
 
